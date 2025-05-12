@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
 <head>
-    <link rel="stylesheet" href="toDo.css">
+    <link rel="stylesheet" href="./toDo.css">
     <title>To-Do List Web App</title>
 </head>
 
@@ -15,95 +11,105 @@
             <div class="headCon">
                 <h1 class="h1">Personal Task Manager</h1>
             </div>
-            
+
             <div class="dataCon">
-            <!-- Input Add Task here -->
-            <div class="inputCon">
-                <div class="addTask">
-                    <h5 class="h5">Add Task</h5>
-                    <div class="inpFields">
-                        <input type="title" name="title" id="title" placeholder="title">
-                        <input type="description" name="description" id="title" placeholder="description">
-                        <select name="priority" id="title">
-                            <option value="game">Priority</option>
-                        </select>
+                <!-- Input Add Task here -->
+                <div class="inputCon">
+                    <div class="addTask">
+                        <h5 class="h5">Add Task</h5>
+                        <div class="inpFields">
+                            <input type="title" name="title" id="title" class="title1" placeholder="title">
+                            <input type="description" name="description" id="title" class="title2" placeholder="description">
+                            <select name="priority" id="title" class="title3">
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btnSub" id="btnSub" onclick="submitt()">Add</button>
+                        <button type="submit" class="btnSub" id="resBtn" onclick="resett()">Reset</button>
                     </div>
-                    <button type="submit" class="btnSub">Add</button>
-                </div>
 
-            <!-- Input Filter Task here -->
-            <div class="mainFilterTaskCon">
-                <h5 class="h5">Filter Task</h5>
-                <div class="inputFilterCon">
-                    <select name="All" id="All">
-                        <option value="All">All</option>
-                    </select>
-                    <select name="All" id="All">
-                        <option value="All">All</option>
-                    </select>
+                    <!-- Input Filter Task here -->
+                    <div class="mainFilterTaskCon">
+                        <h5 class="h5">Filter Task</h5>
+                        <div class="inputFilterCon">
+                            <select name="All" id="All" class="filterStatus" onchange="filteredTask()">
+                                <option value="All">All</option>
+                                <option value="Completed">Completed</option>
+                                <option value="pending">pending</option>
+                            </select>
+                            <select name="All" id="All" class="filterPriority" onchange="filteredTask()">
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Input Project Task here -->
+                    <div class="projectTaskCon" id="projectTaskCon">
+                        <div class="inputProjectCon">
+                            <input type="checkbox" name="checkbox" id="checkbox">
+                            <div class="head">
+                                <h5>Finish project</h5>
+                                <h6>Complete final report</h6>
+                            </div>
+                            <div class="head2">
+                                <!-- <h5>Complete final report</h5> -->
+                                <div class="decText">High</div>
+                            </div>
+                            <div class="linkText">
+                                <h5>Edit</h5>
+                                <button type="button">Del</button>
+                            </div>
+                        </div>
+                        <!-- Finish Project upper -->
+
+                        <div class="separate"></div>
+
+                        <div class="inputProjectCon">
+                            <input type="checkbox" name="checkbox" id="checkbox">
+                            <div class="head">
+                                <h5>Buy groceries</h5>
+                                <h6>Milk ,bread ,eggs</h6>
+                            </div>
+                            <div class="head2">
+                                <!-- <h5>Milk ,bread ,eggs</h5> -->
+                                <div class="decText">Medium</div>
+                            </div>
+                            <div class="linkText">
+                                <h5 class="linkEdit">Edit</h5>
+                                <button type="button">Del</button>
+                            </div>
+                        </div>
+                        <!-- Buy groceries upper -->
+
+                        <div class="separate"></div>
+
+                        <div class="inputProjectCon">
+                            <input type="checkbox" name="checkbox" id="checkbox">
+                            <div class="head">
+                                <h5>Read book</h5>
+                                <h6>Start with chapter 1</h6>
+                            </div>
+                            <div class="head2">
+                                <!-- <h5>Start with chapter 1</h5> -->
+                                <div class="decText">Low</div>
+                            </div>
+                            <div class="linkText">
+                                <h5 class="linkEdit">Edit</h5>
+                                <button type="button">Del</button>
+                            </div>
+                        </div>
+                        <!-- Read book upper -->
+
+                    </div>
                 </div>
             </div>
-
-            <!-- Input Project Task here -->
-            <div class="projectTaskCon">
-                <div class="inputProjectCon">
-                    <input type="checkbox" name="checkbox" id="checkbox">
-                    <div class="head">
-                        <h5>Finish project</h5>
-                        <h6>Complete final report</h6>
-                    </div>
-                    <div class="head2">
-                        <h5>Complete final report</h5>
-                        <div class="decText">High</div>
-                    </div>
-                    <div class="linkText">
-                        <h5>Edit</h5>
-                    </div>
-                </div>
-                <!-- Finish Project upper -->
-
-                <div class="separate"></div>
-
-                <div class="inputProjectCon">
-                    <input type="checkbox" name="checkbox" id="checkbox">
-                    <div class="head">
-                        <h5>Buy groceries</h5>
-                        <h6>Milk ,bread ,eggs</h6>
-                    </div>
-                    <div class="head2">
-                        <h5>Milk ,bread ,eggs</h5>
-                        <div class="decText">Medium</div>
-                    </div>
-                    <div class="linkText">
-                        <h5 class="linkEdit">Edit</h5>
-                    </div>
-                </div>
-                <!-- Buy groceries upper -->
-
-                <div class="separate"></div>
-
-                <div class="inputProjectCon">
-                    <input type="checkbox" name="checkbox" id="checkbox">
-                    <div class="head">
-                        <h5>Read book</h5>
-                        <h6>Start with chapter 1</h6>
-                    </div>
-                    <div class="head2">
-                        <h5>Start with chapter 1</h5>
-                        <div class="decText">Low</div>
-                    </div>
-                    <div class="linkText">
-                        <h5 class="linkEdit">Edit</h5>
-                    </div>
-                </div>
-                <!-- Read book upper -->
-
-            </div>
         </div>
-        </div>
-    </div>
 </body>
 
-<script src="toDo.js"></script>
+<script src="./toDo.js"></script>
 
 </html>
